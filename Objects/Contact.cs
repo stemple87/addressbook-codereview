@@ -57,7 +57,7 @@ namespace AddressBook.Objects
       _instancesObjects.Add(this);
     }
     // clears all objects from list
-    public static void ClearAll()
+    public void Clear()
     {
       _instancesObjects.Clear();
     }

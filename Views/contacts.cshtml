@@ -8,7 +8,8 @@
     <br>
   }
 </ul>
-<p><a href='/'>Add another Contact</a></p>
-<form action='/contacts_cleared' method='post'>
-  <button type='submit' name='button'>Remove all contacts</button>
+<p><a href='/'>Return home</a></p>
+<p><a href='/Contact/new'>Add another contact</a></p>
+<form class="" action='/contact/@Model[0].GetId()' method="post">
+  <button type="submit" name="button">Click here to remove all contacts</button>
 </form>

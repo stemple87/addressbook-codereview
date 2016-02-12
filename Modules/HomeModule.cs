@@ -28,6 +28,11 @@ namespace AddressBook
         Contact contact = Contact.Find(parameters.id);
         return View["/contacts.cshtml", contact];
       };
+      Post["/contact/{id}"] = parameters => {
+        Contact selectedContact = Contact.Find(parameters.id);
+        selectedContact.Clear();
+        return View["contacts_cleared.cshtml", selectedContact];
+      };
     }
   }
 }
