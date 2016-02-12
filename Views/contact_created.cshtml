@@ -1,12 +1,9 @@
 <h1>You created a contact!</h1>
 <ul>
-  @foreach (var contact in Model)
-  {
-    <li>Name: @contact.GetName()</li>
-    <li>Address: @contact.GetAddress()</li>
-    <li>Phone Number: @contact.GetPhoneNumber()</li>
+    <li>Name: @Model.GetName()</li>
+    <li>Address: @Model.GetAddress()</li>
+    <li>Phone Number: @Model.GetPhoneNumber()</li>
     <br>
-  }
 </ul>
 <p><a href='/'>Return home</a></p>
 <p><a href='/contact/new'>Add another contact</a></p>

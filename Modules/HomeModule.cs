@@ -19,22 +19,22 @@ namespace AddressBook
       Get["/contact/new"] = _ => {
         return View["contact_form.cshtml"];
       };
-      Get["/all_contacts"] = _ => {
-        return View["all_contacts.cshtml"];
+      Get["/all_contacts/"] = _ => {
+        var allContacts = Contact.GetAll();
+        return View["all_contacts.cshtml", allContacts];
       };
       Post["/contact_created"] = _ => {
         Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-address"], Request.Form["new-number"]);
         List<Contact> allContacts = Contact.GetAll();
-        return View["contact_created.cshtml", allContacts];
-      };
-      Post["/contacts"] = _ => {
-        Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-address"], Request.Form["new-number"]);
-        List<Contact> allContacts = Contact.GetAll();
-        return View["contacts.cshtml", allContacts];
+        return View["contact_created.cshtml", newContact];
       };
       Get["/contact/{id}"] = parameters => {
         Contact contact = Contact.Find(parameters.id);
         return View["/contacts.cshtml", contact];
+      };
+      Get["/contactList/{id}"] = parameters => {
+        Contact contact = Contact.Find(parameters.id);
+        return View["/.cshtml", contact];
       };
       Post["/contacts_deleted/{id}"] = parameters => {
         Contact selectedContact = Contact.Find(parameters.id);

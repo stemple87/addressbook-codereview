@@ -1,13 +1,18 @@
 <h1>Your Contacts</h1>
 <ul>
-  @foreach (var contact in Model)
+  @if (Model.Count <= 1)
   {
-    <li>Name: @contact.GetName()</li>
-    <li>Address: @contact.GetAddress()</li>
-    <li>Phone Number: @contact.GetPhoneNumber()</li>
+    <h2>You have not added a contact yet</h2>
+  }
+  @foreach (var contact in Model) {
+    <ul>
+      <li>Name: @contact.GetName()</li>
+      <li>Address: @contact.GetAddress()</li>
+      <li>Phone Number: @contact.GetPhoneNumber()</li>
+    </ul>
     <br>
   }
-</ul>
+
 <p><a href='/'>Return home</a></p>
 <p><a href='/Contact/new'>Add another contact</a></p>
 <form class="" action='/contacts_deleted/@Model[0].GetId()' method="post">
