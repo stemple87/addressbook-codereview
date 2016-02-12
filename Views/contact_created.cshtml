@@ -1,4 +1,4 @@
-<h1>Your Contacts</h1>
+<h1>You created a contact!</h1>
 <ul>
   @foreach (var contact in Model)
   {
@@ -9,7 +9,5 @@
   }
 </ul>
 <p><a href='/'>Return home</a></p>
-<p><a href='/Contact/new'>Add another contact</a></p>
-<form class="" action='/contact/@Model[0].GetId()' method="post">
-  <button type="submit" name="button">Click here to remove all contacts</button>
-</form>
+<p><a href='/contact/new'>Add another contact</a></p>
+<p><a href='/all_contacts'>View all contacts</a></p>

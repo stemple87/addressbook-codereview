@@ -1,0 +1,15 @@
+<h1>Your Contacts</h1>
+<ul>
+  @foreach (var contact in Model)
+  {
+    <li>Name: @contact.GetName()</li>
+    <li>Address: @contact.GetAddress()</li>
+    <li>Phone Number: @contact.GetPhoneNumber()</li>
+    <br>
+  }
+</ul>
+<p><a href='/'>Return home</a></p>
+<p><a href='/Contact/new'>Add another contact</a></p>
+<form class="" action='/contacts_deleted/@Model[0].GetId()' method="post">
+  <button type="submit" name="button">Click here to remove all contacts</button>
+</form>
