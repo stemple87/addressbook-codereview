@@ -15,7 +15,7 @@ _This is an address book app. It uses a contact class to store phone numbers and
 
 ## Known Bugs
 
-_None yet._
+_If no list items are saved a 500 error occurs._
 
 ## Support and contact details
 

@@ -32,10 +32,6 @@ namespace AddressBook
         Contact contact = Contact.Find(parameters.id);
         return View["/contacts.cshtml", contact];
       };
-      Get["/contactList/{id}"] = parameters => {
-        Contact contact = Contact.Find(parameters.id);
-        return View["/.cshtml", contact];
-      };
       Post["/contacts_deleted/{id}"] = parameters => {
         Contact selectedContact = Contact.Find(parameters.id);
         selectedContact.Clear();
