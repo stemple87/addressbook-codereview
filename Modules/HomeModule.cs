@@ -25,17 +25,15 @@ namespace AddressBook
       };
       Post["/contact_created"] = _ => {
         Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-address"], Request.Form["new-number"]);
-        List<Contact> allContacts = Contact.GetAll();
         return View["contact_created.cshtml", newContact];
       };
       Get["/contact/{id}"] = parameters => {
         Contact contact = Contact.Find(parameters.id);
         return View["/contacts.cshtml", contact];
       };
-      Post["/contacts_deleted/{id}"] = parameters => {
-        Contact selectedContact = Contact.Find(parameters.id);
-        selectedContact.Clear();
-        return View["contacts_cleared.cshtml", selectedContact];
+      Post["/contacts_deleted/"] = _ => {
+        Contact.Clear();
+        return View["contacts_cleared.cshtml"];
       };
     }
   }
